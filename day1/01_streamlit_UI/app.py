@@ -36,14 +36,14 @@ name = st.text_input("あなたの名前", "ゲスト")
 st.write(f"こんにちは、{name}さん！")
 
 # ボタン
-# st.subheader("ボタン")
-# if st.button("クリックしてください"):
-#     st.success("ボタンがクリックされました！")
+st.subheader("ボタン")
+if st.button("クリックしてください"):
+    st.success("ボタンがクリックされました！")
 
 # チェックボックス
-# st.subheader("チェックボックス")
-# if st.checkbox("チェックを入れると追加コンテンツが表示されます"):
-#     st.info("これは隠れたコンテンツです！")
+st.subheader("チェックボックス")
+if st.checkbox("チェックを入れると追加コンテンツが表示されます"):
+    st.info("これは隠れたコンテンツです！")
 
 # スライダー
 # st.subheader("スライダー")
@@ -149,18 +149,19 @@ st.write(f"こんにちは、{name}さん！")
 #     st.balloons()
 
 # ファイルアップロード
-# st.subheader("ファイルアップロード")
-# uploaded_file = st.file_uploader("ファイルをアップロード", type=["csv", "txt"])
-# if uploaded_file is not None:
-#     # ファイルのデータを表示
-#     bytes_data = uploaded_file.getvalue()
-#     st.write(f"ファイルサイズ: {len(bytes_data)} bytes")
-#     
-#     # CSVの場合はデータフレームとして読み込む
-#     if uploaded_file.name.endswith('.csv'):
-#         df = pd.read_csv(uploaded_file)
-#         st.write("CSVデータのプレビュー:")
-#         st.dataframe(df.head())
+st.subheader("ファイルアップロード")
+uploaded_file = st.file_uploader("ファイルをアップロード", type=["csv", "txt"])
+if uploaded_file is not None:
+    # ファイルのデータを表示
+    bytes_data = uploaded_file.getvalue()
+    st.write(f"ファイルサイズ: {len(bytes_data)} bytes")
+    st.write(f"{name}さんによってファイルがアップロードされました！")
+    
+    # CSVの場合はデータフレームとして読み込む
+    if uploaded_file.name.endswith('.csv'):
+        df = pd.read_csv(uploaded_file)
+        st.write("CSVデータのプレビュー:")
+        st.dataframe(df.head())
 
 # ============================================
 # カスタマイズ
